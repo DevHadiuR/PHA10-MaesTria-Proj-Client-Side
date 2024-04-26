@@ -137,9 +137,11 @@ const Header = () => {
           <button className="btn bg-[#525CEB] text-white text-base px-5 rounded-xl hover:bg-[#3D3B40] transition-all mr-2">
             Logout
           </button>
-          <button className="btn bg-[#525CEB] text-white text-base px-5 rounded-xl hover:bg-[#3D3B40] transition-all">
+         <Link to="/register">
+         <button className="btn bg-[#525CEB] text-white text-base px-5 rounded-xl hover:bg-[#3D3B40] transition-all">
             Register
           </button>
+         </Link>
         </div>
         <div className="dropdown dropdown-bottom dropdown-end md:hidden transition-all">
           <div tabIndex={0} role="button" className="mr-4">

@@ -6,6 +6,7 @@ import AddCraft from "../pages/addCraft/AddCraft";
 import MyCraft from "../pages/myCraft/MyCraft";
 import BookTicket from "../pages/bookTicket/BookTicket";
 import Error from "../shared/error/Error";
+import Register from "../pages/register/Register";
 
 export const Router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
       },
       {
         path: "/allCraft",
