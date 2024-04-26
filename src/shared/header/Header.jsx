@@ -104,15 +104,18 @@ const Header = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-md dropdown-content mt-3 z-[1] p-3 shadow-xl border-2 border-[#3D3B40] bg-base-100 rounded-box w-52"
+            className="menu menu-md dropdown-content mt-3 z-30 p-3 shadow-xl border-2 border-[#3D3B40] bg-base-100 rounded-box w-52"
           >
             {navlink}
           </ul>
         </div>
-       <Link> <img className="w-24 md:w-36" src="log2.jpg" alt="" /></Link>
+        <Link>
+          {" "}
+          <img className="w-24 md:w-36" src="log2.jpg" alt="" />
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 text-lg font-medium">
+        <ul className="menu menu-horizontal px-1 text-lg font-medium font-serif">
           {navlink}
         </ul>
       </div>
@@ -126,9 +129,11 @@ const Header = () => {
               />
             </div>
           </div>
-          <button className="btn bg-[#525CEB] text-white text-base px-5 rounded-xl hover:bg-[#3D3B40] transition-all mr-2">
-            Login
-          </button>
+          <Link to="/login">
+            <button className="btn bg-[#525CEB] text-white text-base px-5 rounded-xl hover:bg-[#3D3B40] transition-all mr-2">
+              Login
+            </button>
+          </Link>
           <button className="btn bg-[#525CEB] text-white text-base px-5 rounded-xl hover:bg-[#3D3B40] transition-all mr-2">
             Logout
           </button>
@@ -138,11 +143,11 @@ const Header = () => {
         </div>
         <div className="dropdown dropdown-bottom dropdown-end md:hidden transition-all">
           <div tabIndex={0} role="button" className="mr-4">
-          <FaAngleDown className="text-3xl" />
+            <FaAngleDown className="text-3xl" />
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content z-[1] menu shadow-xl bg-base-100 rounded-box p-4"
+            className="dropdown-content z-[20] menu shadow-xl bg-base-100 rounded-box p-4"
           >
             <li>
               <div className="avatar bg-white">
