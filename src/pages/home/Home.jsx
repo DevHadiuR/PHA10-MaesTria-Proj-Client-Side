@@ -8,7 +8,7 @@ const Home = () => {
         <title>Home Page | MaesTria</title>
       </Helmet>
       {/* banner */}
-      <section className="h-screen md:h-[530px]">
+      <section className="h-screen md:h-[600px] mt-20">
         <Banner></Banner>
       </section>
     </div>
