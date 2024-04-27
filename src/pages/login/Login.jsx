@@ -1,8 +1,30 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { IoMdEyeOff } from "react-icons/io";
+import { IoEye } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const [showPass, setShowPass] = useState(false);
+  const handleShowPassword = () => {
+    setShowPass(!showPass);
+  };
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
+
+    console.log(email, password);
+  };
+
   return (
     <div
       className="hero min-h-screen"
@@ -31,7 +53,10 @@ const Login = () => {
                 <h1 className="text-center mt-2  w-[70%]  mx-auto  text-5xl font-semibold font-dm text-white opacity-90]">
                   LOGIN NOW!
                 </h1>
-                <form className="card-body font-serif">
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="card-body font-serif"
+                >
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text text-white text-xl">
@@ -43,26 +68,48 @@ const Login = () => {
                       name="email"
                       placeholder="Enter Your Email"
                       className="input input-accent text-white text-lg  border-[#ffff] bg-transparent"
-                      required
+                      {...register("email", { required: true })}
                     />
+                    {errors.email && (
+                      <span className="mt-2 text-yellow-300">
+                        This field is required
+                      </span>
+                    )}
                   </div>
-                  <div className="form-control">
+                  <div className="form-control relative">
                     <label className="label">
                       <span className="label-text text-white text-xl">
                         Password
                       </span>
                     </label>
                     <input
-                      type="password"
+                      type={showPass ? "text" : "password"}
                       name="password"
                       placeholder="Enter Your Password"
                       className="input input-accent text-white text-lg  border-[#ffff] bg-transparent"
-                      required
+                      {...register("password", { required: true })}
                     />
+                    <span
+                      onClick={handleShowPassword}
+                      className="absolute bottom-3 right-5 text-2xl cursor-pointer"
+                    >
+                      {showPass ? (
+                        <IoMdEyeOff className="text-white" />
+                      ) : (
+                        <IoEye className="text-white" />
+                      )}
+                    </span>
                   </div>
-
+                  {errors.password && (
+                    <span className="mt-2 text-yellow-300">
+                      This field is required
+                    </span>
+                  )}
                   <div className="form-control mt-6">
-                    <button className="btn bg-transparent text-xl hover:bg-[#628E90] text-white transition-all">
+                    <button
+                      type="submit"
+                      className="btn bg-transparent text-xl hover:bg-[#628E90] text-white transition-all"
+                    >
                       LOGIN
                     </button>
                   </div>
@@ -95,7 +142,10 @@ const Login = () => {
                 <div className="mb-5">
                   <h1 className="text-center text-lg font-serif text-white">
                     New To This Website ? Please{" "}
-                    <Link className="text-blue-500 underline cursor-pointer hover:scale-110 transition-all" to="/register">
+                    <Link
+                      className="text-blue-500 underline cursor-pointer hover:scale-110 transition-all"
+                      to="/register"
+                    >
                       Register
                     </Link>{" "}
                   </h1>

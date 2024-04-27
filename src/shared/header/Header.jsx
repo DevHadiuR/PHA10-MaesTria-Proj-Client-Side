@@ -104,7 +104,7 @@ const Header = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-md dropdown-content mt-3 z-30 p-3 shadow-xl border-2 border-[#3D3B40] transition-all  rounded-box w-52 -left-3 rounded-t-none bg-[#333333]"
+            className="menu menu-md dropdown-content mt-3 z-30 p-3 shadow-xl border-2 border-[#3D3B40] transition-all  rounded-box w-52 -left-3 rounded-t-none bg-[#3C2317]"
           >
             {navlink}
           </ul>
@@ -145,15 +145,15 @@ const Header = () => {
         </div>
         <div className="dropdown dropdown-bottom dropdown-end md:hidden transition-all">
           <div tabIndex={0} role="button" className="mr-4">
-            <FaAngleDown className="text-3xl" />
+            <FaAngleDown className="text-3xl text-white" />
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content z-[20] menu shadow-xl bg-base-100 rounded-box p-4"
+            className="dropdown-content z-[20] menu shadow-xl bg-[#3C2317] rounded-box p-4"
           >
             <li>
-              <div className="avatar bg-white">
-                <div className="w-14 bg-white border-2 rounded-full">
+              <div className="avatar flex justify-center">
+                <div className="w-14 border-2 rounded-full">
                   <img
                     className="bg-none"
                     src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
@@ -162,19 +162,25 @@ const Header = () => {
               </div>
             </li>
             <li>
-              <button className="btn bg-[#525CEB] text-white text-base px-5 rounded-xl hover:bg-[#3D3B40] transition-all mb-2 mt-2">
+              <Link>
+              <button className="btn bg-[#628E90] text-white text-base px-7 rounded-xl hover:bg-[#3C2317] transition-all mb-2 mt-2">
                 Login
               </button>
+              </Link>
             </li>
             <li>
-              <button className="btn bg-[#525CEB] text-white text-base px-5 rounded-xl hover:bg-[#3D3B40] transition-all mb-2 mt-2">
+              <Link>
+              <button className="btn bg-[#628E90] text-white text-base px-6 rounded-xl hover:bg-[#3C2317] transition-all mb-2 mt-2">
                 Logout
               </button>
+              </Link>
             </li>
             <li>
-              <button className="btn bg-[#525CEB] text-white text-base px-5 rounded-xl hover:bg-[#3D3B40] transition-all mb-2 mt-2">
+              <Link>
+              <button className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mb-2 mt-2">
                 Register
               </button>
+              </Link>
             </li>
           </ul>
         </div>

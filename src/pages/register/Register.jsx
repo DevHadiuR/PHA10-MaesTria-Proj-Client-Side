@@ -1,6 +1,28 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { IoMdEyeOff } from "react-icons/io";
+import { IoEye } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const [showPass, setShowPass] = useState(false);
+  const handleShowPassword = () => {
+    setShowPass(!showPass);
+  };
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    const { name, email, password, url } = data;
+
+    console.log(name, email, password, url);
+  };
+
   return (
     <div className="hero min-h-screen bg-[#628E90]  py-24  mt-24">
       <div className="hero-content flex   gap-5 flex-col lg:flex-row  w-full">
@@ -20,10 +42,11 @@ const Register = () => {
                 <p className="mb-5 font-serif">
                   Welcome to the vibrant world of sculpting! Dive into a realm
                   where creativity knows no bounds and imagination takes shape
-                  in the form of clay, stone, metal, and more. Whether you&apos;re a
-                  seasoned sculptor or just starting on your artistic journey,
-                  our registration page opens the door to a community of
-                  like-minded individuals passionate about sculpting.
+                  in the form of clay, stone, metal, and more. Whether
+                  you&apos;re a seasoned sculptor or just starting on your
+                  artistic journey, our registration page opens the door to a
+                  community of like-minded individuals passionate about
+                  sculpting.
                   <br />
                   <br />
                   Unlock a plethora of resources, from expert tutorials and tips
@@ -46,7 +69,10 @@ const Register = () => {
             <h1 className="text-center mb-2 mt-2 border-b-2 w-[70%] border-[#543A3A] mx-auto pb-6 text-5xl font-semibold font-dm text-[#3D3B40]">
               REGISTER NOW!
             </h1>
-            <form className="card-body font-serif">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="card-body font-serif"
+            >
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -56,8 +82,13 @@ const Register = () => {
                   name="name"
                   placeholder="Enter Your Name"
                   className="input input-bordered border-[#543A3A]"
-                  required
+                  {...register("name", { required: true })}
                 />
+                {errors.name && (
+                  <span className="mt-2 text-red-800">
+                    This field is required
+                  </span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -68,8 +99,13 @@ const Register = () => {
                   name="url"
                   placeholder="Enter Your Photo URL"
                   className="input input-bordered border-[#543A3A]"
-                  required
+                  {...register("url", { required: true })}
                 />
+                {errors.url && (
+                  <span className="mt-2 text-red-800">
+                    This field is required
+                  </span>
+                )}
               </div>
               <div className="form-control">
                 <label className="label">
@@ -80,28 +116,48 @@ const Register = () => {
                   name="email"
                   placeholder="Enter Your Email"
                   className="input input-bordered border-[#543A3A]"
-                  required
+                  {...register("email", { required: true })}
                 />
+                {errors.email && (
+                  <span className="mt-2 text-red-800">
+                    This field is required
+                  </span>
+                )}
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={showPass ? "text" : "password"}
                   name="password"
                   placeholder="Enter Your Password"
                   className="input input-bordered border-[#543A3A]"
-                  required
+                  {...register("password", { required: true })}
                 />
-                
+                <span
+                  onClick={handleShowPassword}
+                  className="absolute bottom-3 right-5 text-2xl cursor-pointer"
+                >
+                  {showPass ? <IoMdEyeOff /> : <IoEye />}
+                </span>
               </div>
+              {errors.password && (
+                <span className="mt-2 text-red-800">
+                  This field is required
+                </span>
+              )}
               <div className="form-control mt-6">
-                <button className="btn bg-[#628E90] text-lg hover:bg-[#3C2317] text-white transition-all">REGISTER</button>
+                <button
+                  type="submit"
+                  className="btn bg-[#628E90] text-lg hover:bg-[#3C2317] text-white transition-all"
+                >
+                  REGISTER
+                </button>
               </div>
             </form>
             <div className="mb-5">
-              <h1 className="text-center font-serif">
+              <h1 className="text-center font-serif text-lg">
                 Already Have An Account ? Please{" "}
                 <Link className="text-blue-700 underline" to="/login">
                   Login
