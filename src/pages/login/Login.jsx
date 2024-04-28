@@ -4,12 +4,15 @@ import { FaGithub, FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "sweetalert2/src/sweetalert2.scss";
 import { ProjectContext } from "../../hooks/provider/ArtProvider";
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const { loginUser, googleProvider, gitHubProvider, twitterProvider } =
     useContext(ProjectContext);
 
@@ -35,7 +38,7 @@ const Login = () => {
           icon: "success",
         });
 
-        // navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/");
 
         reset();
       })
@@ -56,7 +59,7 @@ const Login = () => {
           text: "You Have Successfully Loged In!",
           icon: "success",
         });
-        // navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch(() => {
         Swal.fire({
@@ -74,7 +77,7 @@ const Login = () => {
           text: "You Have Successfully Loged In!",
           icon: "success",
         });
-        // navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch(() => {
         Swal.fire({
@@ -92,7 +95,7 @@ const Login = () => {
           text: "You Have Successfully Loged In!",
           icon: "success",
         });
-        // navigate(location?.state ? location.state : "/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch(() => {
         Swal.fire({

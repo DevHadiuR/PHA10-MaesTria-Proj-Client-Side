@@ -4,7 +4,6 @@ import { Link, NavLink } from "react-router-dom";
 import { ProjectContext } from "../../hooks/provider/ArtProvider";
 import Swal from "sweetalert2";
 import "sweetalert2/src/sweetalert2.scss";
-import { Tooltip } from "react-tooltip";
 
 const Header = () => {
   const { user, logoutUser } = useContext(ProjectContext);
@@ -36,7 +35,7 @@ const Header = () => {
       <li>
         <NavLink
           to="/"
-          className="hover:scale-110 transition-all mr-2 hover:bg-transparent "
+          className=" transition-all mr-2 hover:bg-transparent "
           style={({ isActive }) => {
             return {
               border: isActive ? "2px solid white" : "none",
@@ -51,7 +50,7 @@ const Header = () => {
       <li>
         <NavLink
           to="/allCraft"
-          className="hover:scale-110 transition-all mr-2 hover:bg-transparent"
+          className=" transition-all mr-2 hover:bg-transparent"
           style={({ isActive }) => {
             return {
               border: isActive ? "2px solid white" : "none",
@@ -66,7 +65,7 @@ const Header = () => {
       <li>
         <NavLink
           to="/addCraft"
-          className="hover:scale-110 transition-all mr-2 hover:bg-transparent"
+          className=" transition-all mr-2 hover:bg-transparent"
           style={({ isActive }) => {
             return {
               border: isActive ? "2px solid white" : "none",
@@ -81,7 +80,7 @@ const Header = () => {
       <li>
         <NavLink
           to="/myCraft"
-          className="hover:scale-110 transition-all mr-2 hover:bg-transparent"
+          className=" transition-all mr-2 hover:bg-transparent"
           style={({ isActive }) => {
             return {
               border: isActive ? "2px solid white" : "none",
@@ -96,7 +95,7 @@ const Header = () => {
       <li>
         <NavLink
           to="/bookTicket"
-          className="hover:scale-110 transition-all mr-2 hover:bg-transparent"
+          className=" transition-all mr-2 hover:bg-transparent"
           style={({ isActive }) => {
             return {
               border: isActive ? "2px solid white" : "none",
@@ -165,7 +164,7 @@ const Header = () => {
                   className="dropdown-content z-[20] menu px-2 py-4 space-y-4 shadow rounded-box  -left-12 border-2 "
                 >
                   <li>
-                    <p className="text-white text-xl font-serif font-semibold hover:scale-105 transition-all">
+                    <p className="text-black hover:bg-transparent text-xl font-serif font-semibold hover:scale-105 transition-all">
                       {displayName}
                     </p>
                   </li>
@@ -242,7 +241,7 @@ const Header = () => {
                   </Link>
                 </li>
 
-                <li> 
+                <li>
                   <Link to="/register">
                     <button className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mb-2 mt-2">
                       Register

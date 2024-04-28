@@ -8,6 +8,7 @@ import BookTicket from "../pages/bookTicket/BookTicket";
 import Error from "../shared/error/Error";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
+import PrivateRouter from "./PrivateRouter";
 
 export const Router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
       },
       {
         path: "/allCraft",
@@ -33,11 +34,19 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/addCraft",
-        element: <AddCraft></AddCraft>,
+        element: (
+          <PrivateRouter>
+            <AddCraft></AddCraft>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/myCraft",
-        element: <MyCraft></MyCraft>,
+        element: (
+          <PrivateRouter>
+            <MyCraft></MyCraft>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/bookTicket",
