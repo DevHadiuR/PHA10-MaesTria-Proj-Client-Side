@@ -58,6 +58,14 @@ const ArtProvider = ({ children }) => {
     return signInWithPopup(auth, twitProvider);
   };
 
+  const [craftItems, setCraftItems] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/addedSculptures")
+      .then((res) => res.json())
+      .then((data) => setCraftItems(data));
+  }, []);
+
   const projectInfo = {
     createUser,
     loginUser,
@@ -67,6 +75,7 @@ const ArtProvider = ({ children }) => {
     gitHubProvider,
     twitterProvider,
     loader,
+    craftItems,
   };
 
   return (
