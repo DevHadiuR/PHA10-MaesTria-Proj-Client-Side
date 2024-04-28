@@ -74,7 +74,7 @@ const Header = () => {
             };
           }}
         >
-          Add Craft Item
+          Add Craft Items
         </NavLink>
       </li>
       <li>
