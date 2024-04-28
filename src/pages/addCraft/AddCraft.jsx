@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
 
 const AddCraft = () => {
   const {
@@ -23,10 +25,26 @@ const AddCraft = () => {
       User_Name,
     } = data;
 
-    
-    
-
-
+    fetch("http://localhost:5000/addSculpture", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((value) => {
+        console.log(value);
+        if (value.insertedId) {
+          Swal.fire({
+            title: "Good job!",
+            text: "Sculpture is Successfully added!",
+            icon: "success",
+          });
+          reset();
+        }
+      })
+      .catch(console.log);
   };
 
   return (
@@ -288,7 +306,7 @@ const AddCraft = () => {
                         </span>
                       </label>
                       <input
-                        type="text"
+                        type="email"
                         name="User_Email"
                         placeholder="Enter Your"
                         className="input input-accent text-white text-lg  border-[#ffff] bg-transparent"
