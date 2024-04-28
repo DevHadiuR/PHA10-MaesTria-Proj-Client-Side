@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaGithub, FaTwitter } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
+import { ProjectContext } from "../../hooks/provider/ArtProvider";
 
 const Login = () => {
+  const { loginUser, googleProvider, gitHubProvider, twitterProvider } =
+    useContext(ProjectContext);
+
   const [showPass, setShowPass] = useState(false);
   const handleShowPassword = () => {
     setShowPass(!showPass);
@@ -21,8 +27,80 @@ const Login = () => {
 
   const onSubmit = (data) => {
     const { email, password } = data;
+    loginUser(email, password)
+      .then(() => {
+        Swal.fire({
+          title: "Hurray !!!",
+          text: "You Have Successfully Loged In!",
+          icon: "success",
+        });
 
-    console.log(email, password);
+        // navigate(location?.state ? location.state : "/");
+
+        reset();
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "User Not Found !",
+        });
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleProvider()
+      .then(() => {
+        Swal.fire({
+          title: "Hurray !!!",
+          text: "You Have Successfully Loged In!",
+          icon: "success",
+        });
+        // navigate(location?.state ? location.state : "/");
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "User Not Found !",
+        });
+      });
+  };
+  const handleGithubLogin = () => {
+    gitHubProvider()
+      .then(() => {
+        Swal.fire({
+          title: "Hurray !!!",
+          text: "You Have Successfully Loged In!",
+          icon: "success",
+        });
+        // navigate(location?.state ? location.state : "/");
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "User Not Found !",
+        });
+      });
+  };
+  const handleTwitterLogin = () => {
+    twitterProvider()
+      .then(() => {
+        Swal.fire({
+          title: "Hurray !!!",
+          text: "You Have Successfully Loged In!",
+          icon: "success",
+        });
+        // navigate(location?.state ? location.state : "/");
+      })
+      .catch(() => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "User Not Found !",
+        });
+      });
   };
 
   return (
@@ -120,19 +198,19 @@ const Login = () => {
                 <div className="text-white border-t-2 pt-5 mt-6 w-[60%] mx-auto ">
                   <div className="flex justify-center items-center mb-5 gap-6">
                     <span
-                      // onClick={handleGoogleLogin}
+                      onClick={handleGoogleLogin}
                       className=" border-2 p-2 border-white rounded-full"
                     >
                       <FcGoogle className="text-2xl cursor-pointer hover:scale-125 transition-all" />
                     </span>
                     <span
-                      // onClick={handleGithubLogin}
+                      onClick={handleGithubLogin}
                       className="border-2 p-2 border-white rounded-full"
                     >
                       <FaGithub className="text-2xl cursor-pointer hover:scale-125 transition-all" />
                     </span>
                     <span
-                      // onClick={handleTwitterLogin}
+                      onClick={handleTwitterLogin}
                       className="border-2 p-2 border-white rounded-full"
                     >
                       <FaTwitter className="text-2xl cursor-pointer hover:scale-125 transition-all text-blue-500" />

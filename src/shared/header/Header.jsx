@@ -1,7 +1,36 @@
+import { useContext } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
+import { ProjectContext } from "../../hooks/provider/ArtProvider";
+import Swal from "sweetalert2";
+import "sweetalert2/src/sweetalert2.scss";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
+  const { user, logoutUser } = useContext(ProjectContext);
+  const { displayName, photoURL } = user || {};
+
+  const logout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You Wanna Log Out ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "SURE",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logoutUser();
+        Swal.fire({
+          title: "Hmmmmmmmm!!",
+          text: "Sir You Have Successfully Log Out!",
+          icon: "success",
+        });
+      }
+    });
+  };
+
   const navlink = (
     <>
       <li>
@@ -121,27 +150,51 @@ const Header = () => {
       </div>
       <div className="navbar-end">
         <div className="hidden md:flex items-center">
-          <div className="avatar cursor-pointer border-[#628E90] bg-[#fff] border-2 rounded-full mr-2">
-            <div className="w-14 hover:p-1 transition-all  rounded-full">
-              <img
-                className="rounded-full"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
-            </div>
-          </div>
-          <Link to="/login">
-            <button className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2">
-              Login
-            </button>
-          </Link>
-          <button className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2">
-            Logout
-          </button>
-         <Link to="/register">
-         <button className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all">
-            Register
-          </button>
-         </Link>
+          {user ? (
+            <>
+              <div className="dropdown dropdown-hover">
+                <div tabIndex={0} role="button">
+                  <div className="avatar cursor-pointer border-[#628E90] bg-[#fff] border-2 rounded-full mr-2">
+                    <div className="w-14 hover:p-1 transition-all  rounded-full">
+                      <img className="rounded-full" src={photoURL} />
+                    </div>
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-[20] menu px-2 py-4 space-y-4 shadow rounded-box  -left-12 border-2 "
+                >
+                  <li>
+                    <p className="text-white text-xl font-serif font-semibold hover:scale-105 transition-all">
+                      {displayName}
+                    </p>
+                  </li>
+                  <li className="  pl-2">
+                    <button
+                      onClick={logout}
+                      className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </>
+          ) : (
+            <>
+              <Link to="/login">
+                <button className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2">
+                  Login
+                </button>
+              </Link>
+
+              <Link to="/register">
+                <button className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all">
+                  Register
+                </button>
+              </Link>
+            </>
+          )}
         </div>
         <div className="dropdown dropdown-bottom dropdown-end md:hidden transition-all">
           <div tabIndex={0} role="button" className="mr-4">
@@ -151,37 +204,53 @@ const Header = () => {
             tabIndex={0}
             className="dropdown-content z-[20] menu shadow-xl bg-[#3C2317] rounded-box p-4"
           >
-            <li>
-              <div className="avatar flex justify-center">
-                <div className="w-14 border-2 rounded-full">
-                  <img
-                    className="bg-none"
-                    src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  />
-                </div>
-              </div>
-            </li>
-            <li>
-              <Link>
-              <button className="btn bg-[#628E90] text-white text-base px-7 rounded-xl hover:bg-[#3C2317] transition-all mb-2 mt-2">
-                Login
-              </button>
-              </Link>
-            </li>
-            <li>
-              <Link>
-              <button className="btn bg-[#628E90] text-white text-base px-6 rounded-xl hover:bg-[#3C2317] transition-all mb-2 mt-2">
-                Logout
-              </button>
-              </Link>
-            </li>
-            <li>
-              <Link>
-              <button className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mb-2 mt-2">
-                Register
-              </button>
-              </Link>
-            </li>
+            {user ? (
+              <>
+                <li>
+                  <div
+                    className="avatar flex justify-center tooltip  tooltip-warning"
+                    data-tip={displayName}
+                  >
+                    <div className="w-14 hover:border-2 transition-all hover:p-1  hover:border-white rounded-full ">
+                      <img
+                        alt="picture"
+                        className="bg-none rounded-full"
+                        src={photoURL}
+                      />
+                    </div>
+                  </div>
+                </li>
+
+                <li>
+                  <Link>
+                    <button
+                      onClick={logout}
+                      className="btn bg-[#628E90] text-white text-base px-6 rounded-xl hover:bg-[#3C2317] transition-all mb-2 mt-2"
+                    >
+                      Logout
+                    </button>
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/login">
+                    <button className="btn bg-[#628E90] text-white text-base px-7 rounded-xl hover:bg-[#3C2317] transition-all mb-2 mt-2">
+                      Login
+                    </button>
+                  </Link>
+                </li>
+
+                <li> 
+                  <Link to="/register">
+                    <button className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mb-2 mt-2">
+                      Register
+                    </button>
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
       </div>
