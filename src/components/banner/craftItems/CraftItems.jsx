@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 const CraftItems = () => {
   const { craftItems } = useContext(ProjectContext);
 
+  const sliceCraft = craftItems.slice(0, 6);
 
   return (
     <div>
@@ -21,7 +22,7 @@ const CraftItems = () => {
       </p>
 
       <div className="mt-14">
-        {craftItems.map((item) => (
+        {sliceCraft.map((item) => (
           <div key={item._id} className="container">
             <div className="content">
               <div>

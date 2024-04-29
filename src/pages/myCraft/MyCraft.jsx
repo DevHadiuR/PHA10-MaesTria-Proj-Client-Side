@@ -11,11 +11,13 @@ const MyCraft = () => {
 
   const [myCrafts, setMyCrafts] = useState([]);
 
+  const [refresh, setRefresh] = useState(false);
+
   useEffect(() => {
     fetch(`http://localhost:5000/addedSculptures/byEmail/${User_Email}`)
       .then((res) => res.json())
       .then((data) => setMyCrafts(data));
-  }, [User_Email]);
+  }, [User_Email, refresh]);
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -40,6 +42,7 @@ const MyCraft = () => {
                 icon: "success",
               });
               console.log(data);
+              setRefresh(!refresh);
             }
           });
       }
