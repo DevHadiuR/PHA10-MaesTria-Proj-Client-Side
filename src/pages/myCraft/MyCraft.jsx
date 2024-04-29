@@ -3,6 +3,7 @@ import { ProjectContext } from "../../hooks/provider/ArtProvider";
 
 import "./myCraft.css";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyCraft = () => {
   const { user } = useContext(ProjectContext);
@@ -16,7 +17,34 @@ const MyCraft = () => {
       .then((data) => setMyCrafts(data));
   }, [User_Email]);
 
-  console.log(myCrafts);
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/addedSculptures/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              console.log(data);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <section>
@@ -81,7 +109,10 @@ const MyCraft = () => {
                       UPDATE
                     </button>
                   </Link>
-                  <button className="btn ml-4 bg-[#628E90] text-white hover:bg-[#3C2317] transition-all">
+                  <button
+                    onClick={() => handleDelete(item._id)}
+                    className="btn ml-4 bg-[#628E90] text-white hover:bg-[#3C2317] transition-all"
+                  >
                     DELETE
                   </button>
                 </div>
