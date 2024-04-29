@@ -8,15 +8,23 @@ import Swal from "sweetalert2";
 const MyCraft = () => {
   const { user } = useContext(ProjectContext);
   const { email: User_Email } = user || {};
+  const [refresh, setRefresh] = useState(false);
 
   const [myCrafts, setMyCrafts] = useState([]);
+  const [sortData, setSortData] = useState([]);
 
-  const [refresh, setRefresh] = useState(false);
+  const handleCustomyzation = (poke) => {
+    const data = myCrafts.filter((craft) => craft.Customization === poke);
+    setSortData(data);
+  };
 
   useEffect(() => {
     fetch(`http://localhost:5000/addedSculptures/byEmail/${User_Email}`)
       .then((res) => res.json())
-      .then((data) => setMyCrafts(data));
+      .then((data) => {
+        setMyCrafts(data);
+        setSortData(data);
+      });
   }, [User_Email, refresh]);
 
   const handleDelete = (_id) => {
@@ -73,8 +81,34 @@ const MyCraft = () => {
         </div>
       </div>
 
+      <div className="text-end my-12 mr-16 mb-24">
+        <details className="dropdown ">
+          <summary className="m-1 cursor-pointer p-2 rounded-xl text-xl font-serif bg-[#628E90] text-white hover:bg-[#628E90] ">
+            Sort By Customization
+          </summary>
+          <ul className="p-2  menu dropdown-content z-[1]  rounded-box right-28 md:right-4 w-32 text-center">
+            <li
+              onClick={() => {
+                handleCustomyzation("Yes");
+              }}
+              className="bg-[#628E90] text-white hover:bg-[#3C2317] mb-2 rounded-xl text-base font-bold pl-7"
+            >
+              <a>YES</a>
+            </li>
+            <li
+              onClick={() => {
+                handleCustomyzation("No");
+              }}
+              className="bg-[#628E90] text-white hover:bg-[#3C2317] rounded-xl text-base font-bold  pl-7"
+            >
+              <a>NO</a>
+            </li>
+          </ul>
+        </details>
+      </div>
+
       <div className="mt-16">
-        {myCrafts.map((item) => (
+        {sortData.map((item) => (
           <div key={item._id} className="container">
             <div className="content ">
               <div>
