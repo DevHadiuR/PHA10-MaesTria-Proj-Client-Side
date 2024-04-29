@@ -164,14 +164,14 @@ const Header = () => {
                   className="dropdown-content z-[20] menu px-2 py-4 space-y-4 shadow rounded-box  -left-12 border-2 "
                 >
                   <li>
-                    <p className="text-black hover:bg-transparent text-xl font-serif font-semibold hover:scale-105 transition-all">
+                    <p className=" hover:bg-[#3C2317] text-xl font-serif font-semibold mt-2 transition-all bg-[#628E90] text-white">
                       {displayName}
                     </p>
                   </li>
                   <li className="  pl-2">
                     <button
                       onClick={logout}
-                      className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2"
+                      className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2 mb-2"
                     >
                       Logout
                     </button>
@@ -212,8 +212,9 @@ const Header = () => {
                   >
                     <div className="w-14 hover:border-2 transition-all hover:p-1  hover:border-white rounded-full ">
                       <img
-                        alt="picture"
-                        className="bg-none rounded-full"
+                        alt="/404.jpg"
+                        data-tip={displayName}
+                        className="bg-none rounded-full tooltip  tooltip-warning"
                         src={photoURL}
                       />
                     </div>

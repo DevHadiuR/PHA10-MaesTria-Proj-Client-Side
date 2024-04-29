@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import "sweetalert2/src/sweetalert2.scss";
+import { ProjectContext } from "../../hooks/provider/ArtProvider";
 
 const AddCraft = () => {
+  const { user } = useContext(ProjectContext);
+  const { displayName, email } = user;
+
   const {
     register,
     handleSubmit,
@@ -287,6 +292,8 @@ const AddCraft = () => {
                       </label>
                       <input
                         type="text"
+                        defaultValue={displayName}
+                        readOnly
                         name="User_Name"
                         placeholder="Enter Your"
                         className="input input-accent text-white text-lg  border-[#ffff] bg-transparent"
@@ -307,6 +314,8 @@ const AddCraft = () => {
                       </label>
                       <input
                         type="email"
+                        defaultValue={email}
+                        readOnly
                         name="User_Email"
                         placeholder="Enter Your"
                         className="input input-accent text-white text-lg  border-[#ffff] bg-transparent"

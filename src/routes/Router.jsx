@@ -23,7 +23,11 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/craftItemDetail/:id",
-        element: <CraftItemDetail></CraftItemDetail>,
+        element: (
+          <PrivateRouter>
+            <CraftItemDetail></CraftItemDetail>
+          </PrivateRouter>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/addedSculptures/${params.id}`),
       },

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const CraftItems = () => {
   const { craftItems } = useContext(ProjectContext);
-  console.log(craftItems);
+
 
   return (
     <div>
@@ -29,7 +29,7 @@ const CraftItems = () => {
                 <img
                   className="content-image  h-full md:h-80"
                   src={item.Image}
-                  alt="Sculpture Image"
+                  alt="/404.jpg"
                 />
                 <div className="content-details fadeIn-bottom">
                   <h3 className="content-title text-2xl font-serif">
