@@ -9,6 +9,7 @@ import Error from "../shared/error/Error";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import PrivateRouter from "./PrivateRouter";
+import CraftItemDetail from "../pages/craftItemDetail/CraftItemDetail";
 
 export const Router = createBrowserRouter([
   {
@@ -19,6 +20,12 @@ export const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/craftItemDetail/:id",
+        element: <CraftItemDetail></CraftItemDetail>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/addedSculptures/${params.id}`),
       },
       {
         path: "/register",

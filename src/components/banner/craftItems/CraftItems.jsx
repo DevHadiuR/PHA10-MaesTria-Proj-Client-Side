@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ProjectContext } from "../../../hooks/provider/ArtProvider";
 
 import "./CraftItems.css";
+import { Link } from "react-router-dom";
 
 const CraftItems = () => {
   const { craftItems } = useContext(ProjectContext);
@@ -24,7 +25,7 @@ const CraftItems = () => {
           <div key={item._id} className="container">
             <div className="content">
               <div>
-                <div className="content-overlay"></div>
+                <div className="content-overlay "></div>
                 <img
                   className="content-image  h-full md:h-80"
                   src={item.Image}
@@ -38,9 +39,11 @@ const CraftItems = () => {
                     {item.Short_Description}
                   </p>
 
-                  <button className="btn mt-5 text-base font-serif">
-                    View Details
-                  </button>
+                  <Link to={`/craftItemDetail/${item._id}`}>
+                    <button className="btn mt-5 text-base font-serif">
+                      View Details
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
