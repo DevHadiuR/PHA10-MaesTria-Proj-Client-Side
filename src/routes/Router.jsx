@@ -10,6 +10,7 @@ import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
 import PrivateRouter from "./PrivateRouter";
 import CraftItemDetail from "../pages/craftItemDetail/CraftItemDetail";
+import UpdateMyCraft from "../pages/updateMyCraft/UpdateMyCraft";
 
 export const Router = createBrowserRouter([
   {
@@ -58,6 +59,16 @@ export const Router = createBrowserRouter([
             <MyCraft></MyCraft>
           </PrivateRouter>
         ),
+      },
+      {
+        path: "/updateMyCraft/:id",
+        element: (
+          <PrivateRouter>
+            <UpdateMyCraft></UpdateMyCraft>
+          </PrivateRouter>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/addedSculptures/${params.id}`),
       },
       {
         path: "/bookTicket",

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { ProjectContext } from "../../hooks/provider/ArtProvider";
 
 import "./myCraft.css";
+import { Link } from "react-router-dom";
 
 const MyCraft = () => {
   const { user } = useContext(ProjectContext);
@@ -75,9 +76,11 @@ const MyCraft = () => {
                     {item.Stock_Status}
                   </p>
 
-                  <button className="btn mt-0 md:mt-4 bg-[#628E90] text-white hover:bg-[#3C2317] transition-all">
-                    UPDATE
-                  </button>
+                  <Link to={`/updateMyCraft/${item._id}`}>
+                    <button className="btn mt-0 md:mt-4 bg-[#628E90] text-white hover:bg-[#3C2317] transition-all">
+                      UPDATE
+                    </button>
+                  </Link>
                   <button className="btn ml-4 bg-[#628E90] text-white hover:bg-[#3C2317] transition-all">
                     DELETE
                   </button>
