@@ -19,7 +19,9 @@ const MyCraft = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/addedSculptures/byEmail/${User_Email}`)
+    fetch(
+      `https://sculpture-web-proj-server-site.vercel.app/addedSculptures/byEmail/${User_Email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyCrafts(data);
@@ -38,9 +40,12 @@ const MyCraft = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/addedSculptures/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://sculpture-web-proj-server-site.vercel.app/addedSculptures/${_id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {

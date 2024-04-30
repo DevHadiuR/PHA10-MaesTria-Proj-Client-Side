@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ArtAndCraftCategory = () => {
   const [subSculptures, SetSubSculptures] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/subSculptures")
+    fetch("https://sculpture-web-proj-server-site.vercel.app/subSculptures")
       .then((res) => res.json())
       .then((data) => SetSubSculptures(data));
   }, []);

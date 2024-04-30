@@ -10,7 +10,7 @@ const Home = () => {
         <title>Home Page | MaesTria</title>
       </Helmet>
       {/* banner */}
-      <section className="mt-16">
+      <section className="mt-16 mx-0 md:mx-8 lg:mx-10">
         <Banner></Banner>
       </section>
       <section className="mt-32 ">

@@ -31,14 +31,16 @@ export const Router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addedSculptures/${params.id}`),
+          fetch(
+            `https://sculpture-web-proj-server-site.vercel.app/addedSculptures/${params.id}`
+          ),
       },
       {
         path: "/subCategoriesAllItem/:CategoryName",
         element: <SubCategoriesAllItem></SubCategoriesAllItem>,
         loader: ({ params }) =>
           fetch(
-            `http://localhost:5000/addedSculptures/category/${params.CategoryName}`
+            `https://sculpture-web-proj-server-site.vercel.app/addedSculptures/category/${params.CategoryName}`
           ),
       },
       {
@@ -77,7 +79,9 @@ export const Router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addedSculptures/${params.id}`),
+          fetch(
+            `https://sculpture-web-proj-server-site.vercel.app/addedSculptures/${params.id}`
+          ),
       },
       {
         path: "/bookTicket",

@@ -30,7 +30,7 @@ const AddCraft = () => {
       User_Name,
     } = data;
 
-    fetch("http://localhost:5000/addSculpture", {
+    fetch("https://sculpture-web-proj-server-site.vercel.app/addSculpture", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

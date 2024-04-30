@@ -61,7 +61,7 @@ const ArtProvider = ({ children }) => {
   const [craftItems, setCraftItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/addedSculptures")
+    fetch("https://sculpture-web-proj-server-site.vercel.app/addedSculptures")
       .then((res) => res.json())
       .then((data) => setCraftItems(data));
   }, []);
