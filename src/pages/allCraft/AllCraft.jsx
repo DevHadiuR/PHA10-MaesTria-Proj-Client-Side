@@ -1,11 +1,16 @@
 import { useContext } from "react";
 import { ProjectContext } from "../../hooks/provider/ArtProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AllCraft = () => {
   const { craftItems } = useContext(ProjectContext);
   return (
+  
     <section>
+      <Helmet>
+        <title>All Art & Craft Page | MasTria</title>
+      </Helmet>
       <div
         className="hero h-[450px]"
         style={{ backgroundImage: "url(/allcraft1.jpg)" }}

@@ -1,11 +1,14 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
 const SubCategoriesAllItem = () => {
   const loaderData = useLoaderData();
 
-
   return (
     <div className="mt-14">
+      <Helmet>
+        <title>Sculpture Sub Category Page | MasTria</title>
+      </Helmet>
       <h1 className="text-4xl md:text-6xl text-center font-dm">
         Explore Detailed Collections
       </h1>
@@ -49,14 +52,13 @@ const SubCategoriesAllItem = () => {
                   </div>
 
                   <Link to={`/craftItemDetail/${item._id}`}>
-                    <button className="btn mt-2 md:mt-4 bg-[#628E90] text-white hover:bg-[#3C2317] transition-all">
+                    <button className="btn mt-2 md:mt-4  hover:text-white hover:bg-[#3C2317] transition-all">
                       View Details
                     </button>
                   </Link>
                 </div>
               </div>
             </div>
-         
           </div>
         ))}
       </div>

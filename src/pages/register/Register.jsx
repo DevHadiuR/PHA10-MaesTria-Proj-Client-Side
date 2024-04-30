@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import "sweetalert2/src/sweetalert2.scss";
 import { ProjectContext } from "../../hooks/provider/ArtProvider";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
@@ -66,7 +67,7 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
-     
+
         Swal.fire({
           title: "Congratulation!",
           text: "You Have Successfully Registered!",
@@ -80,7 +81,6 @@ const Register = () => {
         reset();
       })
       .catch((error) => {
-       
         const err = error.message
           .split("/")
           .pop()
@@ -95,6 +95,9 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen bg-[#628E90]  py-24  mt-24">
+      <Helmet>
+        <title>Register Page | MaesTria</title>
+      </Helmet>
       <div className="hero-content flex   gap-5 flex-col lg:flex-row  w-full">
         <div className=" flex-1 w-full rounded-xl">
           <div

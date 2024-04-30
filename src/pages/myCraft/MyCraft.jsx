@@ -4,6 +4,7 @@ import { ProjectContext } from "../../hooks/provider/ArtProvider";
 import "./myCraft.css";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const MyCraft = () => {
   const { user } = useContext(ProjectContext);
@@ -54,7 +55,7 @@ const MyCraft = () => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
-              
+
               setRefresh(!refresh);
             }
           });
@@ -64,6 +65,9 @@ const MyCraft = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>My Art & Craft List Page | MasTria</title>
+      </Helmet>
       <div
         className="hero h-[450px]"
         style={{ backgroundImage: "url(/addcraft3.jpg)" }}

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import "sweetalert2/src/sweetalert2.scss";
 import { ProjectContext } from "../../hooks/provider/ArtProvider";
+import { Helmet } from "react-helmet-async";
 
 const AddCraft = () => {
   const { user } = useContext(ProjectContext);
@@ -59,6 +60,9 @@ const AddCraft = () => {
         backgroundImage: "url(/addcraft2.jpg)",
       }}
     >
+      <Helmet>
+        <title>Add Craft Items Page | MasTria</title>
+      </Helmet>
       <div className="hero-overlay bg-opacity-35"></div>
       <div className="hero-content">
         <div className="hero min-h-screen ">

@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import "sweetalert2/src/sweetalert2.scss";
 import { ProjectContext } from "../../hooks/provider/ArtProvider";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const location = useLocation();
@@ -113,6 +114,9 @@ const Login = () => {
         backgroundImage: "url(/login.jpg)",
       }}
     >
+       <Helmet>
+<title>Login Page | MaesTria</title>
+      </Helmet>
       <div className="hero-overlay bg-opacity-40"></div>
       <div className="hero-content">
         <div className="hero min-h-screen ">

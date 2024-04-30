@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { IoReturnDownBackSharp } from "react-icons/io5";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
@@ -24,6 +25,9 @@ const CraftItemDetail = () => {
 
   return (
     <section>
+      <Helmet>
+        <title>Craft Items Detail Page | MasTria</title>
+      </Helmet>
       <div className="hero min-h-screen ">
         <div className="hero-content flex flex-col lg:flex-row gap-12">
           <div className="w-full lg:w-1/2  flex-1 bg-amber-700 relative h-screen">

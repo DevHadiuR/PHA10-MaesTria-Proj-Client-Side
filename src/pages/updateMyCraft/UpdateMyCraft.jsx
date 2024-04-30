@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { IoReturnDownBackSharp } from "react-icons/io5";
 import { useLoaderData, useNavigate } from "react-router-dom";
@@ -64,6 +65,9 @@ const UpdateMyCraft = () => {
   };
   return (
     <section>
+      <Helmet>
+<title>Update Own Craft Page | MaesTria</title>
+      </Helmet>
       <div
         className="hero min-h-screen"
         style={{

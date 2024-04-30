@@ -5,7 +5,7 @@ import { MdEmail } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <section className="mt-32">
+    <section className="mt-10">
       <div className="footer p-10 py-28 bg-[#3F3F3F] font-serif text-lg text-white">
         <aside>
           <img className="w-64" src="/log3.jpg" alt="" />
