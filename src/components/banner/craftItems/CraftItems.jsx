@@ -3,10 +3,8 @@ import { ProjectContext } from "../../../hooks/provider/ArtProvider";
 
 import "./CraftItems.css";
 import { Link } from "react-router-dom";
-
 const CraftItems = () => {
   const { craftItems } = useContext(ProjectContext);
-
   const sliceCraft = craftItems.slice(0, 6);
 
   return (
@@ -14,6 +12,7 @@ const CraftItems = () => {
       <h1 className="text-5xl md:text-6xl  text-center font-dm ">
         Latest Craft Items
       </h1>
+
       <p className="text-xl mt-4 w-[80%] text-center font-serif mx-auto">
         Step into the world of craftsmanship with our Latest Craft Items.
         Delight in six meticulously curated pieces, each a testament to artistry
