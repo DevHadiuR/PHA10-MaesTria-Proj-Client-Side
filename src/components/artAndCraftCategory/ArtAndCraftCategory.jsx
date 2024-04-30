@@ -9,7 +9,6 @@ const ArtAndCraftCategory = () => {
       .then((data) => SetSubSculptures(data));
   }, []);
 
-  console.log(subSculptures);
 
   return (
     <div>

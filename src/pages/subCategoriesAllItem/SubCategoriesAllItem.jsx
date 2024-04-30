@@ -2,7 +2,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const SubCategoriesAllItem = () => {
   const loaderData = useLoaderData();
-  console.log(loaderData);
+
 
   return (
     <div className="mt-14">

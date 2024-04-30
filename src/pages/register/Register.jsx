@@ -66,7 +66,7 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         const user = res.user;
-        console.log(user);
+     
         Swal.fire({
           title: "Congratulation!",
           text: "You Have Successfully Registered!",
@@ -80,7 +80,7 @@ const Register = () => {
         reset();
       })
       .catch((error) => {
-        console.log(error.message);
+       
         const err = error.message
           .split("/")
           .pop()

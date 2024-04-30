@@ -54,7 +54,7 @@ const MyCraft = () => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
-              console.log(data);
+              
               setRefresh(!refresh);
             }
           });

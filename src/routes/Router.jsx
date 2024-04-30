@@ -4,7 +4,7 @@ import Home from "../pages/home/Home";
 import AllCraft from "../pages/allCraft/AllCraft";
 import AddCraft from "../pages/addCraft/AddCraft";
 import MyCraft from "../pages/myCraft/MyCraft";
-import BookTicket from "../pages/bookTicket/BookTicket";
+
 import Error from "../shared/error/Error";
 import Register from "../pages/register/Register";
 import Login from "../pages/login/Login";
@@ -82,10 +82,6 @@ export const Router = createBrowserRouter([
           fetch(
             `https://sculpture-web-proj-server-site.vercel.app/addedSculptures/${params.id}`
           ),
-      },
-      {
-        path: "/bookTicket",
-        element: <BookTicket></BookTicket>,
       },
     ],
   },

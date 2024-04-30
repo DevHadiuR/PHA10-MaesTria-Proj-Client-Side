@@ -31,7 +31,7 @@ const UpdateMyCraft = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+  
 
     fetch(
       `https://sculpture-web-proj-server-site.vercel.app/addedSculptures/${_id}`,
@@ -45,7 +45,7 @@ const UpdateMyCraft = () => {
     )
       .then((res) => res.json())
       .then((value) => {
-        console.log(value);
+       
         if (value.acknowledged) {
           Swal.fire({
             title: "Congratulation!",

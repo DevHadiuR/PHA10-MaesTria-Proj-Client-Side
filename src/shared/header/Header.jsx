@@ -94,21 +94,6 @@ const Header = () => {
           My Art & Craft List
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/bookTicket"
-          className=" transition-all mr-2 hover:bg-transparent"
-          style={({ isActive }) => {
-            return {
-              border: isActive ? "2px solid white" : "none",
-              backgroundColor: isActive ? "transparent" : "transparent",
-              color: isActive ? "white" : "white",
-            };
-          }}
-        >
-          Book Ticket
-        </NavLink>
-      </li>
     </>
   );
 
@@ -178,17 +163,17 @@ const Header = () => {
                       onClick={logout}
                       className="btn bg-[#628E90] text-xl text-white px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2 mb-2"
                     >
-                    <HiLogout className="text-2xl" />  Logout
+                      <HiLogout className="text-2xl" /> Logout
                     </button>
                   </li>
                 </ul>
               </div>
               <button
-                      onClick={logout}
-                      className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2 mb-2"
-                    >
-                      Logout
-                    </button>
+                onClick={logout}
+                className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2 mb-2"
+              >
+                Logout
+              </button>
             </>
           ) : (
             <>
