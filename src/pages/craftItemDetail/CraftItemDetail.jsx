@@ -29,7 +29,7 @@ const CraftItemDetail = () => {
           <div className="w-full lg:w-1/2  flex-1 bg-amber-700 relative h-screen">
             <img
               src={Image}
-              className="  w-full   lg:translate-x-8 lg:translate-y-8 shadow-xl h-screen"
+              className="  w-full   lg:translate-x-8 lg:translate-y-8 shadow-xl h-full md:h-screen"
             />
           </div>
           <div className="w-full lg:w-1/2 font-serif border-2 border-amber-800  space-y-5  md:px-10 p-5 mt-8">

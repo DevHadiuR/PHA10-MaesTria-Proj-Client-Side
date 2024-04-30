@@ -11,10 +11,10 @@ const CraftItems = () => {
 
   return (
     <div>
-      <h1 className="text-5xl md:text-6xl  text-center font-dm text-[#3C2317]">
+      <h1 className="text-5xl md:text-6xl  text-center font-dm ">
         Latest Craft Items
       </h1>
-      <p className="text-xl text-[#3C2317] mt-4 w-[80%] text-center font-serif mx-auto">
+      <p className="text-xl mt-4 w-[80%] text-center font-serif mx-auto">
         Step into the world of craftsmanship with our Latest Craft Items.
         Delight in six meticulously curated pieces, each a testament to artistry
         and dedication. From intricate sculptures to exquisite textiles, immerse

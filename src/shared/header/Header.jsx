@@ -149,9 +149,9 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {/* <div>
+        <div className="m-5">
           <ToggleTheme></ToggleTheme>
-        </div> */}
+        </div>
         <div className="hidden md:flex items-center">
           {user ? (
             <>
