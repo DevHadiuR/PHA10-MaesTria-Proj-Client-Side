@@ -11,6 +11,7 @@ import Login from "../pages/login/Login";
 import PrivateRouter from "./PrivateRouter";
 import CraftItemDetail from "../pages/craftItemDetail/CraftItemDetail";
 import UpdateMyCraft from "../pages/updateMyCraft/UpdateMyCraft";
+import SubCategoriesAllItem from "../pages/subCategoriesAllItem/SubCategoriesAllItem";
 
 export const Router = createBrowserRouter([
   {
@@ -31,6 +32,14 @@ export const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/addedSculptures/${params.id}`),
+      },
+      {
+        path: "/subCategoriesAllItem/:CategoryName",
+        element: <SubCategoriesAllItem></SubCategoriesAllItem>,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/addedSculptures/category/${params.CategoryName}`
+          ),
       },
       {
         path: "/register",

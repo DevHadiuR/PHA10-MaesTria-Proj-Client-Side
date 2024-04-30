@@ -21,7 +21,7 @@ const CraftItems = () => {
         yourself in the beauty of human creativity and skill.
       </p>
 
-      <div className="mt-14">
+      <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sliceCraft.map((item) => (
           <div key={item._id} className="container">
             <div className="content">

@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { ProjectContext } from "../../hooks/provider/ArtProvider";
 import Swal from "sweetalert2";
 import "sweetalert2/src/sweetalert2.scss";
+import ToggleTheme from "../../components/toggleTheme/ToggleTheme";
 
 const Header = () => {
   const { user, logoutUser } = useContext(ProjectContext);
@@ -148,6 +149,9 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        {/* <div>
+          <ToggleTheme></ToggleTheme>
+        </div> */}
         <div className="hidden md:flex items-center">
           {user ? (
             <>

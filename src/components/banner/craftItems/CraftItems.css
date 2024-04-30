@@ -1,22 +1,3 @@
-.container {
-  padding: 1em 0;
-  float: left;
-  width: 50%;
-}
-
-@media screen and (max-width: 640px) {
-  .container {
-    display: block;
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .container {
-    width: 33.33333%;
-  }
-}
-
 .container .title {
   color: #1a1a1a;
   text-align: center;
@@ -25,8 +6,8 @@
 
 .content {
   position: relative;
-  width: 90%;
-  max-width: 400px;
+  width: 95%;
+  max-width: 450px;
   margin: auto;
   overflow: hidden;
 }

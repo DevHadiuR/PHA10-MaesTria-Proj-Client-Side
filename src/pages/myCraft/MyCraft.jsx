@@ -107,7 +107,7 @@ const MyCraft = () => {
         </details>
       </div>
 
-      <div className="mt-16">
+      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sortData.map((item) => (
           <div key={item._id} className="container">
             <div className="content ">

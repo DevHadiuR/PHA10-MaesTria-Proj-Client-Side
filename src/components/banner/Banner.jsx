@@ -19,7 +19,7 @@ const Banner = () => {
   };
 
   return (
-    <>
+    <div className="h-screen md:h-[600px]">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -144,7 +144,7 @@ const Banner = () => {
           <span ref={progressContent}></span>
         </div>
       </Swiper>
-    </>
+    </div>
   );
 };
 
