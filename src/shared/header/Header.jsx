@@ -5,6 +5,7 @@ import { ProjectContext } from "../../hooks/provider/ArtProvider";
 import Swal from "sweetalert2";
 import "sweetalert2/src/sweetalert2.scss";
 import ToggleTheme from "../../components/toggleTheme/ToggleTheme";
+import { HiLogout } from "react-icons/hi";
 
 const Header = () => {
   const { user, logoutUser } = useContext(ProjectContext);
@@ -165,23 +166,29 @@ const Header = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content z-[20] menu px-2 py-4 space-y-4 shadow rounded-box  -left-12 border-2 "
+                  className="dropdown-content z-[20] menu px-2 py-4 space-y-4 shadow rounded-box  -left-12 border-2  w-56"
                 >
                   <li>
                     <p className=" hover:bg-[#3C2317] text-xl font-serif font-semibold mt-2 transition-all bg-[#628E90] text-white">
                       {displayName}
                     </p>
                   </li>
-                  <li className="  pl-2">
+                  <li className="pl-2">
                     <button
+                      onClick={logout}
+                      className="btn bg-[#628E90] text-xl text-white px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2 mb-2"
+                    >
+                    <HiLogout className="text-2xl" />  Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+              <button
                       onClick={logout}
                       className="btn bg-[#628E90] text-white text-base px-5 rounded-xl hover:bg-[#3C2317] transition-all mr-2 mb-2"
                     >
                       Logout
                     </button>
-                  </li>
-                </ul>
-              </div>
             </>
           ) : (
             <>

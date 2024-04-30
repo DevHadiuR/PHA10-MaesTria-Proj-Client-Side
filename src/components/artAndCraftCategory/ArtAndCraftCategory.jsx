@@ -28,6 +28,10 @@ const ArtAndCraftCategory = () => {
             to={`/subCategoriesAllItem/${item.Subcategory_Name}`}
             key={item._id}
           >
+            <h1 className="text-2xl text-center font-serif font-medium lg:hidden">
+              {" "}
+              {item.Subcategory_Name}
+            </h1>
             <div className="container">
               <div className="content">
                 <div>
