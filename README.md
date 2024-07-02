@@ -24,23 +24,30 @@ Sculpture and Modeling
 
 To clone and run this project locally, follow these steps:
 
-1. Clone the Repository:
+1. **Clone the Repository:**
+   
    git clone https://github.com/DevHadiuR/PHA10-MaesTria-Proj-Client-Side.git
 
-2. Navigate to the Project Directory:
+3. Navigate to the Project Directory:
+
    cd YourRepositoryName
 
-3. Install Dependencies:
+5. Install Dependencies:
+
    npm install
 
-4. Set Up Environment Variables:
+7. Set Up Environment Variables:
+
    Create a .env file in the root directory and configure any necessary environment variables.
 
-5. Start the Development Server:
+9. Start the Development Server:
+
    npm run dev
 
-6. View the Application:
-   Open your web browser and go to http://localhost:3000 to view the running application.
+11. View the Application:
+
+Open your web browser and go to http://localhost:3000 to view the running application.
+
 
 That's it! You can now explore and modify the project locally on your machine.
 
